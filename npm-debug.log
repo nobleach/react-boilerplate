@@ -1,14 +1,14 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'run', 'dev' ]
 2 info using npm@2.14.2
 3 info using node@v0.12.7
 4 verbose node symlink /usr/local/bin/node
-5 verbose run-script [ 'prestart', 'start', 'poststart' ]
-6 info prestart react-boilerplate@0.0.1
-7 info start react-boilerplate@0.0.1
+5 verbose run-script [ 'predev', 'dev', 'postdev' ]
+6 info predev react-boilerplate@0.0.1
+7 info dev react-boilerplate@0.0.1
 8 verbose unsafe-perm in lifecycle true
-9 info react-boilerplate@0.0.1 Failed to exec start script
-10 verbose stack Error: react-boilerplate@0.0.1 start: `babel-node ./server.js`
+9 info react-boilerplate@0.0.1 Failed to exec dev script
+10 verbose stack Error: react-boilerplate@0.0.1 dev: `webpack-dev-server --progress --colors --hot`
 10 verbose stack Exit status 1
 10 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:214:16)
 10 verbose stack     at EventEmitter.emit (events.js:110:17)
@@ -19,17 +19,17 @@
 11 verbose pkgid react-boilerplate@0.0.1
 12 verbose cwd /Users/jimwharton/Sites/react-boilerplate
 13 error Darwin 14.5.0
-14 error argv "node" "/usr/local/bin/npm" "start"
+14 error argv "node" "/usr/local/bin/npm" "run" "dev"
 15 error node v0.12.7
 16 error npm  v2.14.2
 17 error code ELIFECYCLE
-18 error react-boilerplate@0.0.1 start: `babel-node ./server.js`
+18 error react-boilerplate@0.0.1 dev: `webpack-dev-server --progress --colors --hot`
 18 error Exit status 1
-19 error Failed at the react-boilerplate@0.0.1 start script 'babel-node ./server.js'.
+19 error Failed at the react-boilerplate@0.0.1 dev script 'webpack-dev-server --progress --colors --hot'.
 19 error This is most likely a problem with the react-boilerplate package,
 19 error not with npm itself.
 19 error Tell the author that this fails on your system:
-19 error     babel-node ./server.js
+19 error     webpack-dev-server --progress --colors --hot
 19 error You can get their info via:
 19 error     npm owner ls react-boilerplate
 19 error There is likely additional logging output above.

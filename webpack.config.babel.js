@@ -15,9 +15,9 @@ const cfg = {
     ],
 
     output: {
-        path: path.join(__dirname, 'build'),
-        filename: 'bundle.js',
-        publicPath: './'
+        path: __dirname,
+        publicPath: "/build/",
+        filename: 'bundle.js'
     },
 
     plugins: [
@@ -50,22 +50,22 @@ const jsLoader = {
     include: path.join(__dirname, 'src')
 };
 
-// if (env !== 'production') {
-//     cfg.debug = true;
-//     cfg.devtool = '#eval-source-map';
-//
-//     cfg.entry.push(
-//         'webpack/hot/dev-server',
-//         'webpack-hot-middleware/client'
-//     );
-//
-//     cfg.plugins.push(
-//         new webpack.HotModuleReplacementPlugin(),
-//         new webpack.NoErrorsPlugin(),
-//     );
-//
-//     jsLoader.loaders.unshift('react-hot');
-// }
+if (env !== 'production') {
+    cfg.debug = true;
+    cfg.devtool = '#eval-source-map';
+
+    cfg.entry.push(
+        'webpack/hot/dev-server',
+        'webpack-hot-middleware/client'
+    );
+
+    cfg.plugins.push(
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
+    );
+
+    jsLoader.loaders.unshift('react-hot');
+}
 
 cfg.module.loaders.push(jsLoader);
 

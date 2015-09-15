@@ -1,1 +1,6 @@
-const React = require('react');
+'use strict';
+
+import React from 'react';
+import App from './components/app';
+
+React.render(<App />, document.getElementById('root'));
