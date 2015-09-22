@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './style.less';
 
 
-export default class App extends Component {
+class App extends Component {
     render() {
         return (
-            <div>Hello Real Cruel World!</div>
+            <div className={styles.big + ' ' + styles.red}>Goodbye Real Cruel World!</div>
         );
     }
 }
+
+export default CSSModules(App, styles);
