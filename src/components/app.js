@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
-import styles from './style.less';
+import { RouteHandler } from 'react-router';
 
-
-class App extends Component {
+export default class App extends Component {
     render() {
         return (
-            <div className={styles.big + ' ' + styles.red}>Goodbye Real Cruel World!</div>
+            <div>
+                <h1>So yeah.</h1>
+                {this.props.children}
+            </div>
         );
     }
 }
-
-export default CSSModules(App, styles);
