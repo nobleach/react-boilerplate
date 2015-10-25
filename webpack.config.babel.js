@@ -3,6 +3,7 @@ import path from 'path';
 import webpack from 'webpack';
 import NyanProgressPlugin from 'nyan-progress-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 
@@ -22,7 +23,11 @@ const cfg = {
 
     plugins: [
         new NyanProgressPlugin(),
-        new ExtractTextPlugin('app.css', { allChunks: true })
+        new ExtractTextPlugin('app.css', { allChunks: true }),
+        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            filename: 'product.html'
+        })
     ],
 
     module: {

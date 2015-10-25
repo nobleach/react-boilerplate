@@ -9,6 +9,11 @@ export default class Home extends Component {
                 <Link to={'/about'}>About Us</Link>
                 <br />
                 <Link to={'/contact'}>Contact Us</Link>
+                <br />
+                <Link to='/watches/mens-gold-watch/815149/product.html'>Gold Watch</Link>
+                <br />
+                <Link to='/watches/mens-silver-watch/815888/product.html'>Silver Watch</Link>
+
             </div>
         )
     }
