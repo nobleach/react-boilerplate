@@ -1,36 +1,31 @@
-var webpack = require("webpack");
+var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: {
-        app: ['webpack/hot/dev-server', './src/index.js']
-    },
+    entry: [
+        'babel-polyfill',
+        './src/index'
+    ],
     output: {
-        path: __dirname,
-        publicPath: "/build/",
+        publicPath: 'build',
         filename: 'bundle.js'
     },
+    devtool: 'source-map',
     module: {
         loaders: [
-            {test: /\.css$/, loader: 'style!css'},
-            {test: /\.js$/,
-                exclude: /node_modules/,
+            {
+                test: /\.js$/,
+                include: path.join(__dirname, 'src'),
                 loader: 'babel-loader',
                 query: {
-                    optional: ['runtime'],
-                    stage: 0
+                    presets: ["es2015", "react"],
                 }
             },
-            {test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/}
+            { test: /\.less$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!less-loader")
+            }
         ]
     },
-    plugins: [
-        new webpack.ProvidePlugin({
-            'es6-promise': 'es6-promise',
-            'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-        })
-    ],
-    eslint: {
-        formatter: require('eslint/lib/formatters/stylish'),
-        failOnWarning: false
-    }
+    debug: true
 };
