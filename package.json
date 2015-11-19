@@ -4,7 +4,7 @@
   "description": "generic webpack react boilerplate",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./server.js",
+    "start": "babel-node server",
     "test": "mocha --compilers js:babel/register --recursive",
     "test:watch": "npm test -- --watch",
     "dev": "webpack-dev-server --progress --colors --hot"
@@ -15,6 +15,7 @@
     "babel-polyfill": "6.1.4",
     "babel-runtime": "6.0.14",
     "es6-promise": "^3.0.2",
+    "express": "^4.13.3",
     "history": "^1.13.1",
     "isomorphic-fetch": "^2.1.1",
     "normalize-css": "^2.3.1",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.0.2",
+    "babel-cli": "^6.1.18",
     "babel-core": "6.1.4",
     "babel-loader": "6.1.0",
     "babel-plugin-transform-runtime": "6.1.4",
@@ -49,5 +51,11 @@
     "style-loader": "^0.12.3",
     "webpack": "^1.9.10",
     "webpack-dev-server": "^1.9.0"
+  },
+  "babel": {
+    "presets": [
+        "es2015",
+        "react"
+    ]
   }
 }
