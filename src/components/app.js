@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { RouteHandler } from 'react-router';
+import { RouteHandler } from 'react-router';
 
 export default class App extends Component {
     constructor() {
@@ -9,7 +9,7 @@ export default class App extends Component {
         return (
             <div>
                 <h1>So yeah.</h1>
-                {/* {this.props.children} */}
+                {this.props.children}
             </div>
         );
     }

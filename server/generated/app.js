@@ -57,6 +57,8 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(2);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65,42 +67,34 @@ module.exports =
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	// import { RouteHandler } from 'react-router';
+	var App = (function (_Component) {
+	    _inherits(App, _Component);
 
-	var App = class App extends _react.Component {
-	    constructor() {
+	    function App() {
+	        _classCallCheck(this, App);
+
 	        return _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
 	    }
-	    render() {
-	        return _react2.default.createElement(
-	            'div',
-	            {
-	                __source: {
-	                    fileName: '../../../../../src/components/app.js',
-	                    lineNumber: 10
-	                },
-	                __source: {
-	                    fileName: '../../../../../src/components/app.js',
-	                    lineNumber: 10
-	                }
-	            },
-	            _react2.default.createElement(
-	                'h1',
-	                {
-	                    __source: {
-	                        fileName: '../../../../../src/components/app.js',
-	                        lineNumber: 11
-	                    },
-	                    __source: {
-	                        fileName: '../../../../../src/components/app.js',
-	                        lineNumber: 11
-	                    }
-	                },
-	                'So yeah.'
-	            )
-	        );
-	    }
-	};
+
+	    _createClass(App, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'h1',
+	                    null,
+	                    'So yeah.'
+	                ),
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return App;
+	})(_react.Component);
+
 	exports.default = App;
 
 /***/ },
@@ -108,6 +102,12 @@ module.exports =
 /***/ function(module, exports) {
 
 	module.exports = require("react");
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = require("react-router");
 
 /***/ }
 /******/ ]);

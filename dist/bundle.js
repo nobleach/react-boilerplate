@@ -85,62 +85,14 @@
 	var app = document.querySelector('#root');
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouter.Router,
-	    { history: history, __source: {
-	            fileName: '../../../../../src/index.js',
-	            lineNumber: 14
-	        },
-	        __source: {
-	            fileName: '../../../../../src/index.js',
-	            lineNumber: 14
-	        }
-	    },
+	    { history: history },
 	    _react2.default.createElement(
 	        _reactRouter.Route,
-	        { path: '/', component: _app2.default, __source: {
-	                fileName: '../../../../../src/index.js',
-	                lineNumber: 15
-	            },
-	            __source: {
-	                fileName: '../../../../../src/index.js',
-	                lineNumber: 15
-	            }
-	        },
-	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default, __source: {
-	                fileName: '../../../../../src/index.js',
-	                lineNumber: 16
-	            },
-	            __source: {
-	                fileName: '../../../../../src/index.js',
-	                lineNumber: 16
-	            }
-	        }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _about2.default, __source: {
-	                fileName: '../../../../../src/index.js',
-	                lineNumber: 17
-	            },
-	            __source: {
-	                fileName: '../../../../../src/index.js',
-	                lineNumber: 17
-	            }
-	        }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'contact', component: _Contact2.default, __source: {
-	                fileName: '../../../../../src/index.js',
-	                lineNumber: 18
-	            },
-	            __source: {
-	                fileName: '../../../../../src/index.js',
-	                lineNumber: 18
-	            }
-	        }),
-	        _react2.default.createElement(_reactRouter.Route, { path: ':store/:seoName/:productId/product.html', component: _product2.default, __source: {
-	                fileName: '../../../../../src/index.js',
-	                lineNumber: 19
-	            },
-	            __source: {
-	                fileName: '../../../../../src/index.js',
-	                lineNumber: 19
-	            }
-	        })
+	        { path: '/', component: _app2.default },
+	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _about2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'contact', component: _Contact2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: ':store/:seoName/:productId/product.html', component: _product2.default })
 	    )
 	), app);
 
@@ -194,6 +146,7 @@
 	});
 
 	React.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOM;
+	React.__SECRET_DOM_SERVER_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactDOMServer;
 
 	module.exports = React;
 
@@ -10544,6 +10497,7 @@
 	    multiple: MUST_USE_PROPERTY | HAS_BOOLEAN_VALUE,
 	    muted: MUST_USE_PROPERTY | HAS_BOOLEAN_VALUE,
 	    name: null,
+	    nonce: MUST_USE_ATTRIBUTE,
 	    noValidate: HAS_BOOLEAN_VALUE,
 	    open: HAS_BOOLEAN_VALUE,
 	    optimum: null,
@@ -10555,6 +10509,7 @@
 	    readOnly: MUST_USE_PROPERTY | HAS_BOOLEAN_VALUE,
 	    rel: null,
 	    required: HAS_BOOLEAN_VALUE,
+	    reversed: HAS_BOOLEAN_VALUE,
 	    role: MUST_USE_ATTRIBUTE,
 	    rows: MUST_USE_ATTRIBUTE | HAS_POSITIVE_NUMERIC_VALUE,
 	    rowSpan: null,
@@ -18757,7 +18712,7 @@
 
 	'use strict';
 
-	module.exports = '0.14.2';
+	module.exports = '0.14.3';
 
 /***/ },
 /* 147 */
@@ -20390,8 +20345,6 @@
 	 * This source code is licensed under the BSD-style license found in the
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule invariant
 	 */
 
 	'use strict';
@@ -20425,9 +20378,9 @@
 	      var args = [a, b, c, d, e, f];
 	      var argIndex = 0;
 	      error = new Error(
-	        'Invariant Violation: ' +
 	        format.replace(/%s/g, function() { return args[argIndex++]; })
 	      );
+	      error.name = 'Invariant Violation';
 	    }
 
 	    error.framesToPop = 1; // we don't care about invariant's own frame
@@ -21573,8 +21526,6 @@
 	 * This source code is licensed under the BSD-style license found in the
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule invariant
 	 */
 
 	'use strict';
@@ -21608,9 +21559,9 @@
 	      var args = [a, b, c, d, e, f];
 	      var argIndex = 0;
 	      error = new Error(
-	        'Invariant Violation: ' +
 	        format.replace(/%s/g, function() { return args[argIndex++]; })
 	      );
+	      error.name = 'Invariant Violation';
 	    }
 
 	    error.framesToPop = 1; // we don't care about invariant's own frame
@@ -24975,50 +24926,35 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var About = class About extends _react.Component {
-	    constructor() {
+	var About = (function (_Component) {
+	    _inherits(About, _Component);
+
+	    function About() {
+	        _classCallCheck(this, About);
+
 	        return _possibleConstructorReturn(this, Object.getPrototypeOf(About).apply(this, arguments));
 	    }
 
-	    render() {
-	        return _react2.default.createElement(
-	            'div',
-	            { className: 'about', __source: {
-	                    fileName: '../../../../../src/components/about.js',
-	                    lineNumber: 7
-	                },
-	                __source: {
-	                    fileName: '../../../../../src/components/about.js',
-	                    lineNumber: 7
-	                }
-	            },
-	            'About us.',
-	            _react2.default.createElement('br', {
-	                __source: {
-	                    fileName: '../../../../../src/components/about.js',
-	                    lineNumber: 9
-	                },
-	                __source: {
-	                    fileName: '../../../../../src/components/about.js',
-	                    lineNumber: 9
-	                }
-	            }),
-	            _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/', __source: {
-	                        fileName: '../../../../../src/components/about.js',
-	                        lineNumber: 10
-	                    },
-	                    __source: {
-	                        fileName: '../../../../../src/components/about.js',
-	                        lineNumber: 10
-	                    }
-	                },
-	                'Back to home'
-	            )
-	        );
-	    }
-	};
+	    _createClass(About, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'about' },
+	                'About us.',
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/' },
+	                    'Back to home'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return About;
+	})(_react.Component);
+
 	exports.default = About;
 
 /***/ },
@@ -25047,63 +24983,40 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Contact = class Contact extends _react.Component {
-	    constructor() {
+	var Contact = (function (_Component) {
+	    _inherits(Contact, _Component);
+
+	    function Contact() {
+	        _classCallCheck(this, Contact);
+
 	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Contact).apply(this, arguments));
 	    }
 
-	    render() {
-	        return _react2.default.createElement(
-	            'div',
-	            { className: 'shmoo', __source: {
-	                    fileName: '../../../../../src/components/Contact.js',
-	                    lineNumber: 7
-	                },
-	                __source: {
-	                    fileName: '../../../../../src/components/Contact.js',
-	                    lineNumber: 7
-	                }
-	            },
-	            'My numbah: ',
-	            _react2.default.createElement(
-	                'a',
-	                { tel: '904-445-3029', __source: {
-	                        fileName: '../../../../../src/components/Contact.js',
-	                        lineNumber: 8
-	                    },
-	                    __source: {
-	                        fileName: '../../../../../src/components/Contact.js',
-	                        lineNumber: 8
-	                    }
-	                },
-	                '445-3029'
-	            ),
-	            _react2.default.createElement('br', {
-	                __source: {
-	                    fileName: '../../../../../src/components/Contact.js',
-	                    lineNumber: 9
-	                },
-	                __source: {
-	                    fileName: '../../../../../src/components/Contact.js',
-	                    lineNumber: 9
-	                }
-	            }),
-	            _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/', __source: {
-	                        fileName: '../../../../../src/components/Contact.js',
-	                        lineNumber: 10
-	                    },
-	                    __source: {
-	                        fileName: '../../../../../src/components/Contact.js',
-	                        lineNumber: 10
-	                    }
-	                },
-	                'Back to home'
-	            )
-	        );
-	    }
-	};
+	    _createClass(Contact, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'shmoo' },
+	                'My numbah: ',
+	                _react2.default.createElement(
+	                    'a',
+	                    { tel: '904-445-3029' },
+	                    '445-3029'
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/' },
+	                    'Back to home'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Contact;
+	})(_react.Component);
+
 	exports.default = Contact;
 
 /***/ },
@@ -25132,122 +25045,56 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Home = class Home extends _react.Component {
-	    constructor() {
+	var Home = (function (_Component) {
+	    _inherits(Home, _Component);
+
+	    function Home() {
+	        _classCallCheck(this, Home);
+
 	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).apply(this, arguments));
 	    }
 
-	    render() {
-	        return _react2.default.createElement(
-	            'div',
-	            {
-	                __source: {
-	                    fileName: '../../../../../src/components/home.js',
-	                    lineNumber: 7
-	                },
-	                __source: {
-	                    fileName: '../../../../../src/components/home.js',
-	                    lineNumber: 7
-	                }
-	            },
-	            _react2.default.createElement(
+	    _createClass(Home, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
 	                'div',
-	                { className: 'home-route', __source: {
-	                        fileName: '../../../../../src/components/home.js',
-	                        lineNumber: 8
-	                    },
-	                    __source: {
-	                        fileName: '../../../../../src/components/home.js',
-	                        lineNumber: 8
-	                    }
-	                },
-	                'Home sweet home.'
-	            ),
-	            _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/about', __source: {
-	                        fileName: '../../../../../src/components/home.js',
-	                        lineNumber: 9
-	                    },
-	                    __source: {
-	                        fileName: '../../../../../src/components/home.js',
-	                        lineNumber: 9
-	                    }
-	                },
-	                'About Us'
-	            ),
-	            _react2.default.createElement('br', {
-	                __source: {
-	                    fileName: '../../../../../src/components/home.js',
-	                    lineNumber: 10
-	                },
-	                __source: {
-	                    fileName: '../../../../../src/components/home.js',
-	                    lineNumber: 10
-	                }
-	            }),
-	            _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/contact', __source: {
-	                        fileName: '../../../../../src/components/home.js',
-	                        lineNumber: 11
-	                    },
-	                    __source: {
-	                        fileName: '../../../../../src/components/home.js',
-	                        lineNumber: 11
-	                    }
-	                },
-	                'Contact Us'
-	            ),
-	            _react2.default.createElement('br', {
-	                __source: {
-	                    fileName: '../../../../../src/components/home.js',
-	                    lineNumber: 12
-	                },
-	                __source: {
-	                    fileName: '../../../../../src/components/home.js',
-	                    lineNumber: 12
-	                }
-	            }),
-	            _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/watches/mens-gold-watch/815149/product.html', __source: {
-	                        fileName: '../../../../../src/components/home.js',
-	                        lineNumber: 13
-	                    },
-	                    __source: {
-	                        fileName: '../../../../../src/components/home.js',
-	                        lineNumber: 13
-	                    }
-	                },
-	                'Gold Watch'
-	            ),
-	            _react2.default.createElement('br', {
-	                __source: {
-	                    fileName: '../../../../../src/components/home.js',
-	                    lineNumber: 14
-	                },
-	                __source: {
-	                    fileName: '../../../../../src/components/home.js',
-	                    lineNumber: 14
-	                }
-	            }),
-	            _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/watches/mens-silver-watch/815888/product.html', __source: {
-	                        fileName: '../../../../../src/components/home.js',
-	                        lineNumber: 15
-	                    },
-	                    __source: {
-	                        fileName: '../../../../../src/components/home.js',
-	                        lineNumber: 15
-	                    }
-	                },
-	                'Silver Watch'
-	            )
-	        );
-	    }
-	};
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'home-route' },
+	                    'Home sweet home.'
+	                ),
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/about' },
+	                    'About Us'
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/contact' },
+	                    'Contact Us'
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/watches/mens-gold-watch/815149/product.html' },
+	                    'Gold Watch'
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/watches/mens-silver-watch/815888/product.html' },
+	                    'Silver Watch'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Home;
+	})(_react.Component);
+
 	exports.default = Home;
 
 /***/ },
@@ -25266,6 +25113,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(159);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25274,42 +25123,34 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	// import { RouteHandler } from 'react-router';
+	var App = (function (_Component) {
+	    _inherits(App, _Component);
 
-	var App = class App extends _react.Component {
-	    constructor() {
+	    function App() {
+	        _classCallCheck(this, App);
+
 	        return _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
 	    }
-	    render() {
-	        return _react2.default.createElement(
-	            'div',
-	            {
-	                __source: {
-	                    fileName: '../../../../../src/components/app.js',
-	                    lineNumber: 10
-	                },
-	                __source: {
-	                    fileName: '../../../../../src/components/app.js',
-	                    lineNumber: 10
-	                }
-	            },
-	            _react2.default.createElement(
-	                'h1',
-	                {
-	                    __source: {
-	                        fileName: '../../../../../src/components/app.js',
-	                        lineNumber: 11
-	                    },
-	                    __source: {
-	                        fileName: '../../../../../src/components/app.js',
-	                        lineNumber: 11
-	                    }
-	                },
-	                'So yeah.'
-	            )
-	        );
-	    }
-	};
+
+	    _createClass(App, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'h1',
+	                    null,
+	                    'So yeah.'
+	                ),
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return App;
+	})(_react.Component);
+
 	exports.default = App;
 
 /***/ },
@@ -25336,28 +25177,30 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Product = class Product extends _react.Component {
-	    constructor() {
+	var Product = (function (_Component) {
+	    _inherits(Product, _Component);
+
+	    function Product() {
+	        _classCallCheck(this, Product);
+
 	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Product).apply(this, arguments));
 	    }
 
-	    render() {
-	        return _react2.default.createElement(
-	            "div",
-	            { className: "product-page", __source: {
-	                    fileName: "../../../../../src/components/product.js",
-	                    lineNumber: 6
-	                },
-	                __source: {
-	                    fileName: "../../../../../src/components/product.js",
-	                    lineNumber: 6
-	                }
-	            },
-	            "Product ID: ",
-	            this.props.params.productId
-	        );
-	    }
-	};
+	    _createClass(Product, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "product-page" },
+	                "Product ID: ",
+	                this.props.params.productId
+	            );
+	        }
+	    }]);
+
+	    return Product;
+	})(_react.Component);
+
 	exports.default = Product;
 
 /***/ }
