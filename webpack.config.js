@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const SRCDIR = path.resolve(__dirname, 'src');
 const SERVERDIR = path.resolve(__dirname, 'server/generated');
@@ -45,7 +45,7 @@ module.exports = [{
     target: 'node',
     context: SRCDIR,
     entry: {
-        app: 'components/app.js'
+        contact: 'components/contact'
     },
     output: {
         path: SERVERDIR,
@@ -62,6 +62,6 @@ module.exports = [{
         }
     },
     plugins: [
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('styles/[name].css')
     ]
 }];
