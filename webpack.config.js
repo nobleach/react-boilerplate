@@ -19,35 +19,6 @@ const loaders = [{
     loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
 }
 ];
-
-// module.exports = {
-//     entry: [
-//         'babel-polyfill',
-//         './src/index'
-//     ],
-//     output: {
-//         publicPath: 'dist',
-//         filename: 'bundle.js'
-//     },
-//     devtool: 'source-map',
-//     module: {
-//         loaders: [
-//             {
-//                 test: /\.js$/,
-//                 include: path.join(__dirname, 'src'),
-//                 loader: 'babel-loader',
-//                 query: {
-//                     presets: ["es2015", "react"],
-//                 }
-//             },
-//             { test: /\.less$/,
-//                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!less-loader")
-//             }
-//         ]
-//     },
-//     debug: true
-// };
-
 module.exports = [{
     name: 'client',
     target: 'web',

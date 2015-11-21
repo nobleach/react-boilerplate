@@ -4,7 +4,7 @@
   "description": "generic webpack react boilerplate",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./server.js",
+    "start": "babel-node server",
     "test": "mocha --compilers js:babel-core/register src/components/__tests__",
     "test:watch": "npm run test -- --watch",
     "dev": "webpack-dev-server --progress --colors --hot"
