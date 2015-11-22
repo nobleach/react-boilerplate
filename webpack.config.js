@@ -45,7 +45,8 @@ module.exports = [{
     target: 'node',
     context: SRCDIR,
     entry: {
-        contact: 'components/contact'
+        contact: 'components/contact',
+        product: 'components/product'
     },
     output: {
         path: SERVERDIR,

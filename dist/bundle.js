@@ -25189,11 +25189,12 @@
 	    _createClass(Product, [{
 	        key: "render",
 	        value: function render() {
+	            console.log(this.props);
 	            return _react2.default.createElement(
 	                "div",
 	                { className: "product-page" },
 	                "Product ID: ",
-	                this.props.params.productId
+	                this.props.productId
 	            );
 	        }
 	    }]);
