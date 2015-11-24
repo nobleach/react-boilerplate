@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/contact', (request, response) => {
-    response.render('contact', {
+    response.render('app', {
         app: ReactDOMServer.renderToString(<Contact />)
     });
 });
