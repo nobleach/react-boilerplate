@@ -56,8 +56,8 @@ app.get('/:productId/product.html', (req, res) => {
     fetch(url).then((response) => {
         return response.json();
     }).then((product) => {
-        res.render('product', {
-            product: ReactDOMServer.renderToString(<Product product={product} />)
+        res.render('app', {
+            app: ReactDOMServer.renderToString(<Product product={product} />)
         });
     });
 });
