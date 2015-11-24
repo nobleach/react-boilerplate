@@ -56,7 +56,12 @@ module.exports =
 	module.exports = require("react");
 
 /***/ },
-/* 3 */,
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = require("react-router");
+
+/***/ },
 /* 4 */,
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
@@ -73,6 +78,8 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(3);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -81,25 +88,52 @@ module.exports =
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	// fetch
+	__webpack_require__(6).polyfill();
+	__webpack_require__(7);
+
 	var Product = (function (_Component) {
 	    _inherits(Product, _Component);
 
-	    function Product() {
+	    function Product(props) {
 	        _classCallCheck(this, Product);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Product).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Product).call(this, props));
+
+	        if (_this.props.product) {
+	            _this.state = { product: props.product };
+	        } else {
+	            _this.state = {
+	                product: {
+	                    name: '',
+	                    id: 0,
+	                    imageMedium1: ''
+	                }
+	            };
+	        }
+	        return _this;
 	    }
 
 	    _createClass(Product, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            console.log(this.props.product);
+	            var _this2 = this;
+
+	            var id = this.props.params.productId;
+	            var url = 'http://www.overstock.com/api/product.json?prod_id=' + id;
+	            fetch(url).then(function (response) {
+	                return response.json();
+	            }).then(function (product) {
+	                _this2.setState({
+	                    product: product
+	                });
+	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var imageBase = 'http://ak1.ostkcdn.com/images/products/';
-	            var product = this.props.product;
+	            var product = this.state.product;
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'product-page' },
@@ -110,7 +144,12 @@ module.exports =
 	                ),
 	                'Product ID: ',
 	                product.id,
-	                _react2.default.createElement('img', { className: 'hero-image', src: imageBase + product.imageMedium1 })
+	                _react2.default.createElement('img', { className: 'hero-image', src: imageBase + product.imageMedium1 }),
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/' },
+	                    'Back to home'
+	                )
 	            );
 	        }
 	    }]);
@@ -119,6 +158,18 @@ module.exports =
 	})(_react.Component);
 
 	exports.default = Product;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	module.exports = require("es6-promise");
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	module.exports = require("isomorphic-fetch");
 
 /***/ }
 /******/ ]);
