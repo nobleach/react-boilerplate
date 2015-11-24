@@ -1,19 +1,21 @@
 import React from 'react';
-import Router from 'react-router';
-const Route = Router.Route;
-import BrowserHistory from 'react-router/lib/History';
-// import createBrowserHistory from 'history/lib/createBrowserHistory';
-const IndexRoute = Router.IndexRoute;
-import PageBuilder from './PageBuilder';
-import PageReader from './PageReader';
+import ReactDom from 'react-dom';
+import { Router, Route, IndexRoute } from 'react-router';
+import { createHistory } from 'history';
+let history = createHistory();
+import About from './about';
+import Contact from './contact';
+import Home from './home';
 import App from './app';
+import Product from './product';
 
 let routes = (
-    <Router history={BrowserHistory}>
+    <Router history={history}>
         <Route path="/" component={App}>
-            <IndexRoute component={PageBuilder}/>
-            <Route path="builder" component={PageBuilder}/>
-            <Route path="reader" component={PageReader}/>
+            <IndexRoute component={Home} />
+            <Route path="about" component={About}/>
+            <Route path="contact" component={Contact}/>
+            <Route path=":store/:seoName/:productId/product.html" component={Product} />
         </Route>
     </Router>
 );

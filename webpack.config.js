@@ -23,7 +23,7 @@ module.exports = [{
     name: 'client',
     target: 'web',
     context: SRCDIR,
-    entry: './index.js',
+    entry: './components/index.js',
     output: {
         path: DIST,
         filename: 'bundle.js'
@@ -45,8 +45,9 @@ module.exports = [{
     target: 'node',
     context: SRCDIR,
     entry: {
-        contact: 'components/contact',
-        product: 'components/product'
+        routes: 'components/routes',
+        contact: ['components/contact'],
+        product: ['components/product']
     },
     output: {
         path: SERVERDIR,

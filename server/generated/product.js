@@ -45,7 +45,22 @@ module.exports =
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	module.exports = __webpack_require__(4);
+
+
+/***/ },
+/* 1 */,
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = require("react");
+
+/***/ },
+/* 3 */,
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -53,7 +68,7 @@ module.exports =
 	    value: true
 	});
 
-	var _react = __webpack_require__(1);
+	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -75,14 +90,26 @@ module.exports =
 	    }
 
 	    _createClass(Product, [{
-	        key: "render",
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            console.log(this.props.product);
+	        }
+	    }, {
+	        key: 'render',
 	        value: function render() {
-	            console.log(this.props);
+	            var imageBase = 'http://ak1.ostkcdn.com/images/products/';
+	            var product = this.props.product;
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "product-page" },
-	                "Product ID: ",
-	                this.props.productId
+	                'div',
+	                { className: 'product-page' },
+	                _react2.default.createElement(
+	                    'span',
+	                    { className: 'name' },
+	                    product.name
+	                ),
+	                'Product ID: ',
+	                product.id,
+	                _react2.default.createElement('img', { className: 'hero-image', src: imageBase + product.imageMedium1 })
 	            );
 	        }
 	    }]);
@@ -91,12 +118,6 @@ module.exports =
 	})(_react.Component);
 
 	exports.default = Product;
-
-/***/ },
-/* 1 */
-/***/ function(module, exports) {
-
-	module.exports = require("react");
 
 /***/ }
 /******/ ]);
