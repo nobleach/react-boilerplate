@@ -45,11 +45,24 @@ module.exports =
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
+	module.exports = __webpack_require__(4);
 
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = require("react");
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = require("react-router");
+
+/***/ },
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -109,18 +122,6 @@ module.exports =
 	})(_react.Component);
 
 	exports.default = Contact;
-
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	module.exports = require("react");
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	module.exports = require("react-router");
 
 /***/ }
 /******/ ]);

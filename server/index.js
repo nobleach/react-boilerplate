@@ -3,10 +3,10 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { match, RoutingContext } from 'react-router'
+import { match, RoutingContext } from 'react-router';
 import Contact from './generated/contact';
 import Product from './generated/product';
-mport routes from './generated/routes';
+import routes from './generated/routes';
 
 const hostname = process.env.HOSTNAME || 'localhost';
 const port = process.env.PORT || 3000;
@@ -27,8 +27,20 @@ app.set('views', __dirname + '/views');
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
 // Routes
-app.get('/', (rec, res) => {
-
+app.get('/', (req, res) => {
+    match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+        if (error) {
+            res.status(500).send(error.message);
+        } else if (redirectLocation) {
+            res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+        } else if (renderProps) {
+            res.render('app', {
+                app: ReactDOMServer.renderToString(<RoutingContext {...renderProps} />)
+            });
+        } else {
+            res.status(404).send('Not found');
+        }
+    });
 });
 
 app.get('/contact', (request, response) => {

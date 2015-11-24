@@ -46,6 +46,7 @@ module.exports = [{
     context: SRCDIR,
     entry: {
         routes: 'components/routes',
+        app: ['components/app'],
         contact: ['components/contact'],
         product: ['components/product']
     },
