@@ -25221,17 +25221,13 @@
 
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Product).call(this, props));
 
-	        if (_this.props.product) {
-	            _this.state = { product: props.product };
-	        } else {
-	            _this.state = {
-	                product: {
-	                    name: '',
-	                    id: 0,
-	                    imageMedium1: ''
-	                }
-	            };
-	        }
+	        _this.state = {
+	            product: {
+	                name: '',
+	                id: 0,
+	                imageMedium1: ''
+	            }
+	        };
 	        return _this;
 	    }
 
@@ -25241,13 +25237,19 @@
 	            var _this2 = this;
 
 	            var id = this.props.params.productId;
-	            var url = 'http://www.overstock.com/api/product.json?prod_id=' + id;
-	            fetch(url).then(function (response) {
-	                return response.json();
-	            }).then(function (product) {
+	            this.fetchProduct(id).then(function (product) {
 	                _this2.setState({
 	                    product: product
 	                });
+	            });
+	        }
+	    }, {
+	        key: 'fetchProduct',
+	        value: function fetchProduct(id) {
+	            var url = 'http://www.overstock.com/api/product.json?prod_id=' + id;
+
+	            return fetch(url).then(function (response) {
+	                return response.json();
 	            });
 	        }
 	    }, {
