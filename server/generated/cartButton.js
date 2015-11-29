@@ -41,31 +41,30 @@ module.exports =
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(15);
+	module.exports = __webpack_require__(6);
 
 
 /***/ },
-
-/***/ 2:
+/* 1 */,
+/* 2 */
 /***/ function(module, exports) {
 
 	module.exports = require("react");
 
 /***/ },
-
-/***/ 3:
+/* 3 */
 /***/ function(module, exports) {
 
 	module.exports = require("react-router");
 
 /***/ },
-
-/***/ 15:
+/* 4 */,
+/* 5 */,
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -90,42 +89,38 @@ module.exports =
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Contact = (function (_Component) {
-	    _inherits(Contact, _Component);
+	var CartButton = (function (_Component) {
+	    _inherits(CartButton, _Component);
 
-	    function Contact() {
-	        _classCallCheck(this, Contact);
+	    function CartButton() {
+	        _classCallCheck(this, CartButton);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Contact).apply(this, arguments));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(CartButton).apply(this, arguments));
 	    }
 
-	    _createClass(Contact, [{
+	    _createClass(CartButton, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'shmoo' },
-	                'My numbah: ',
-	                _react2.default.createElement(
-	                    'a',
-	                    { tel: '904-445-3029' },
-	                    '445-3029'
-	                ),
-	                _react2.default.createElement('br', null),
+	                { className: 'cart-container' },
 	                _react2.default.createElement(
 	                    _reactRouter.Link,
-	                    { to: '/' },
-	                    'Back to home'
+	                    { to: '/cart' },
+	                    _react2.default.createElement(
+	                        'svg',
+	                        { x: '0px', y: '0px', width: '32px', height: '32px', viewBox: '0 0 32 32', 'enable-background': 'new 0 0 32 32' },
+	                        _react2.default.createElement('path', { fill: '#444444', d: 'M27.312,19.562l3.438-12.5c0.125-0.5,0-1-0.25-1.375c-0.313-0.375-0.75-0.625-1.25-0.625H7.126L6.563,2.438 c-0.125-0.75-0.813-1.25-1.5-1.25H2.75c-0.875,0-1.563,0.688-1.563,1.563S1.875,4.314,2.75,4.314h1.063l4.125,19.875 C7,24.814,6.375,25.939,6.375,27.127c0,2.062,1.625,3.688,3.625,3.688c2.063,0,3.688-1.625,3.688-3.688 c0-0.188-0.063-0.375-0.063-0.625H20.5c-0.062,0.25-0.062,0.438-0.062,0.625c0,2.062,1.625,3.688,3.625,3.688 s3.625-1.625,3.625-3.688c0-1.625-1.063-3-2.563-3.438c-0.25-0.188-0.563-0.313-0.875-0.313h-13.25l-0.625-2.688h15.438 C26.562,20.688,27.125,20.25,27.312,19.562L27.312,19.562z M9.75,17.562L7.812,8.188h19.375l-2.563,9.375H9.75z' })
+	                    )
 	                )
 	            );
 	        }
 	    }]);
 
-	    return Contact;
+	    return CartButton;
 	})(_react.Component);
 
-	exports.default = Contact;
+	exports.default = CartButton;
 
 /***/ }
-
-/******/ });
+/******/ ]);

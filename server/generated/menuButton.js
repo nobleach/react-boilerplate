@@ -41,31 +41,31 @@ module.exports =
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(15);
+	module.exports = __webpack_require__(7);
 
 
 /***/ },
-
-/***/ 2:
+/* 1 */,
+/* 2 */
 /***/ function(module, exports) {
 
 	module.exports = require("react");
 
 /***/ },
-
-/***/ 3:
+/* 3 */
 /***/ function(module, exports) {
 
 	module.exports = require("react-router");
 
 /***/ },
-
-/***/ 15:
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -90,42 +90,39 @@ module.exports =
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Contact = (function (_Component) {
-	    _inherits(Contact, _Component);
+	var MenuButton = (function (_Component) {
+	    _inherits(MenuButton, _Component);
 
-	    function Contact() {
-	        _classCallCheck(this, Contact);
+	    function MenuButton() {
+	        _classCallCheck(this, MenuButton);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Contact).apply(this, arguments));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(MenuButton).apply(this, arguments));
 	    }
 
-	    _createClass(Contact, [{
+	    _createClass(MenuButton, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'shmoo' },
-	                'My numbah: ',
+	                { className: 'menu-button' },
 	                _react2.default.createElement(
-	                    'a',
-	                    { tel: '904-445-3029' },
-	                    '445-3029'
-	                ),
-	                _react2.default.createElement('br', null),
-	                _react2.default.createElement(
-	                    _reactRouter.Link,
-	                    { to: '/' },
-	                    'Back to home'
+	                    'svg',
+	                    { onClick: this.handleTap, x: '0px', y: '0px', width: '32px', height: '32px', viewBox: '0 0 32 32', 'enable-background': 'new 0 0 32 32' },
+	                    _react2.default.createElement('path', { fill: '#444444', d: 'M3.375,3.875h25.25c1.125,0,2.062,0.938,2.062,2.063s-0.938,2-2.062,2H3.375c-1.125,0-2.063-0.875-2.063-2 S2.25,3.875,3.375,3.875z M3.375,13.938h25.25c1.125,0,2.062,0.938,2.062,2.063s-0.938,2.063-2.062,2.063H3.375 c-1.125,0-2.063-0.938-2.063-2.063S2.25,13.938,3.375,13.938z M3.375,24.062h25.25c1.125,0,2.062,0.875,2.062,2 s-0.938,2.063-2.062,2.063H3.375c-1.125,0-2.063-0.938-2.063-2.063S2.25,24.062,3.375,24.062z' })
 	                )
 	            );
 	        }
+	    }, {
+	        key: 'handleTap',
+	        value: function handleTap() {
+	            console.log('menu button tap');
+	        }
 	    }]);
 
-	    return Contact;
+	    return MenuButton;
 	})(_react.Component);
 
-	exports.default = Contact;
+	exports.default = MenuButton;
 
 /***/ }
-
-/******/ });
+/******/ ]);

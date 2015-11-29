@@ -1,0 +1,42 @@
+.header-container {
+  background: #eee;
+  box-sizing: border-box;
+  display: table;
+  padding: 0 10px;
+  width: 100%;
+}
+.header-container .menu-button {
+  display: table-cell;
+  width: 15%;
+}
+.header-container .menu-button svg {
+  vertical-align: 6px;
+  width: 28px;
+}
+.header-container .search-button {
+  display: table-cell;
+  width: 15%;
+}
+.header-container .search-button svg {
+  vertical-align: 6px;
+  width: 26px;
+}
+.header-container .home-link {
+  display: table-cell;
+  width: 20%;
+}
+.header-container .home-link svg {
+  vertical-align: -4px;
+  width: 130px;
+}
+.header-container .cart-container {
+  display: table-cell;
+  width: 20%;
+}
+.header-container .cart-container a {
+  float: right;
+}
+.header-container .cart-container a svg {
+  vertical-align: 3px;
+  width: 28px;
+}

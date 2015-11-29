@@ -16,6 +16,7 @@ const loaders = [{
 },
 {
     test: /\.less$/,
+    include: SRCDIR,
     loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
 }
 ];
@@ -48,7 +49,11 @@ module.exports = [{
         routes: 'components/routes',
         app: ['components/app'],
         contact: ['components/contact'],
-        product: ['components/product']
+        product: ['components/product'],
+        header: ['components/header'],
+        overstockLogo: ['components/overstock-logo'],
+        cartButton: ['components/cart-button'],
+        menuButton: ['components/menu-button']
     },
     output: {
         path: SERVERDIR,

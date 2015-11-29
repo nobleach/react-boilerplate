@@ -27,6 +27,15 @@ app.set('views', __dirname + '/views');
 // Static assets
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
+// app.get('/:productId/product.html', (req, res) => {
+//     console.log('server rendered');
+//     let id = req.params.productId;
+//     let reactHtml = ReactDOMServer.renderToString(<Product productId={id} />);
+//     res.render('product', {
+//         product: reactHtml
+//     });
+// });
+
 app.use((req, res, next) => {
     const location = hist.createLocation(req.path);
     match({
@@ -43,8 +52,10 @@ app.use((req, res, next) => {
             res.status(404)
             .send('Not found');
         } else {
+            console.log(renderProps);
+            let markup = ReactDOMServer.renderToString(<RoutingContext {...renderProps}/>);
             res.render('app', {
-                app: ReactDOMServer.renderToString(<RoutingContext {...renderProps}/>)
+                app: markup
             });
         }
     });
@@ -53,15 +64,6 @@ app.use((req, res, next) => {
 app.get('/contact', (request, response) => {
     response.render('app', {
         app: ReactDOMServer.renderToString(<Contact />)
-    });
-});
-
-app.get('/:productId/product.html', (req, res) => {
-    console.log('server rendered');
-    let id = req.params.productId;
-    let reactHtml = ReactDOMServer.renderToString(<Product productId={id} />);
-    res.render('product', {
-        product: reactHtml
     });
 });
 

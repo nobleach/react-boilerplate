@@ -18,6 +18,7 @@ export default class Product extends Component {
     }
 
     componentDidMount() {
+        console.log('componentDidMount called');
         let id = this.props.params.productId;
         this.fetchProduct(id).then( (product) => {
             this.setState({
@@ -42,8 +43,6 @@ export default class Product extends Component {
                 <span className="name">{product.name}</span>
                 Product ID: {product.id}
                 <img className="hero-image" src={imageBase + product.imageMedium1} />
-                <br />
-                <Link to='/'>Back to home</Link>
             </div>
         );
     }

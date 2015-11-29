@@ -45,7 +45,7 @@ module.exports =
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(5);
+	module.exports = __webpack_require__(16);
 
 
 /***/ },
@@ -63,7 +63,18 @@ module.exports =
 
 /***/ },
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -89,8 +100,8 @@ module.exports =
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// fetch
-	__webpack_require__(6).polyfill();
-	__webpack_require__(7);
+	__webpack_require__(17).polyfill();
+	__webpack_require__(18);
 
 	var Product = (function (_Component) {
 	    _inherits(Product, _Component);
@@ -115,6 +126,7 @@ module.exports =
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
+	            console.log('componentDidMount called');
 	            var id = this.props.params.productId;
 	            this.fetchProduct(id).then(function (product) {
 	                _this2.setState({
@@ -146,13 +158,7 @@ module.exports =
 	                ),
 	                'Product ID: ',
 	                product.id,
-	                _react2.default.createElement('img', { className: 'hero-image', src: imageBase + product.imageMedium1 }),
-	                _react2.default.createElement('br', null),
-	                _react2.default.createElement(
-	                    _reactRouter.Link,
-	                    { to: '/' },
-	                    'Back to home'
-	                )
+	                _react2.default.createElement('img', { className: 'hero-image', src: imageBase + product.imageMedium1 })
 	            );
 	        }
 	    }]);
@@ -163,13 +169,13 @@ module.exports =
 	exports.default = Product;
 
 /***/ },
-/* 6 */
+/* 17 */
 /***/ function(module, exports) {
 
 	module.exports = require("es6-promise");
 
 /***/ },
-/* 7 */
+/* 18 */
 /***/ function(module, exports) {
 
 	module.exports = require("isomorphic-fetch");
