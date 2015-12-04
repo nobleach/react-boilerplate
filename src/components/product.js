@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import ProductOptions from './product-options';
+import ReviewStars from './review-stars';
 
 // fetch
 require('es6-promise').polyfill();
@@ -12,7 +14,8 @@ export default class Product extends Component {
             product: {
                 name: '',
                 id: 0,
-                imageMedium1: ''
+                imageMedium1: '',
+                options: []
             }
         };
     }
@@ -38,11 +41,16 @@ export default class Product extends Component {
     render() {
         const imageBase = 'http://ak1.ostkcdn.com/images/products/';
         const product = this.state.product;
+        console.log(product);
         return (
             <div className="product-page">
-                <span className="name">{product.name}</span>
-                Product ID: {product.id}
                 <img className="hero-image" src={imageBase + product.imageMedium1} />
+                <span className="name">{product.name}</span>
+                {product.options.length > 1 ?
+                    <ProductOptions options={product.options} />
+                    : null
+                }
+                <ReviewStars average="3.4" />
             </div>
         );
     }

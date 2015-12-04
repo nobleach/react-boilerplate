@@ -1,0 +1,40 @@
+select {
+  -webkit-appearance: none;
+  border: 1px solid #cfcfcf;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  height: 38px;
+  margin: 0;
+  padding: 0 10px;
+  width: 100%;
+  background: #ffffff url('data:image/svg+xml;utf8, <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="10px" viewBox="0 0 15 10" enable-background="new 0 0 15 10" xml:space="preserve"> <polyline fill="#454545" points="-0.016,0 15.031,0 7.508,10 "/></svg>') no-repeat;
+  background-position: 96%;
+  background-size: 11px 7px;
+  font-size: 14px;
+  padding: 10px 19px 10px 10px;
+  /* Hack to fix some android browsers */
+  white-space: nowrap;
+}
+select:focus {
+  border-color: #51c9ee;
+  box-shadow: 0px 0px 0px 3px rgba(81, 201, 238, 0.2);
+  outline: none;
+}
+select.labeless {
+  margin-top: 10px;
+}
+.product-page .name {
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  margin: 15px 10px;
+}
+.product-options-container {
+  padding: 0 10px;
+}

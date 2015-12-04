@@ -2,6 +2,8 @@ import path from 'path';
 import express from 'express';
 import handlebars from 'express-handlebars';
 import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import ReactDOMServer from 'react-dom/server';
 import { match, RoutingContext } from 'react-router';
 import Contact from './generated/contact';
@@ -10,7 +12,7 @@ import routes from './generated/routes';
 const hist = require('history');
 
 const hostname = process.env.HOSTNAME || 'localhost';
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // fetch
 require('es6-promise').polyfill();
@@ -18,11 +20,11 @@ require('isomorphic-fetch');
 
 const app = express();
 app.engine('handlebars', handlebars({
-    layoutsDir: __dirname + '/views/layouts',
+    layoutsDir: path.join(__dirname, '/views/layouts'),
     defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, '/views'));
 
 // Static assets
 app.use(express.static(path.resolve(__dirname, '../dist')));
@@ -37,7 +39,7 @@ app.use(express.static(path.resolve(__dirname, '../dist')));
 // });
 
 app.use((req, res, next) => {
-    const location = hist.createLocation(req.path);
+    const location = hist.createLocation(req.url);
     match({
         routes: routes,
         location: location
@@ -52,7 +54,6 @@ app.use((req, res, next) => {
             res.status(404)
             .send('Not found');
         } else {
-            console.log(renderProps);
             let markup = ReactDOMServer.renderToString(<RoutingContext {...renderProps}/>);
             res.render('app', {
                 app: markup

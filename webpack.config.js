@@ -50,10 +50,12 @@ module.exports = [{
         app: ['components/app'],
         contact: ['components/contact'],
         product: ['components/product'],
+        productOptions: ['components/product-options'],
         header: ['components/header'],
         overstockLogo: ['components/overstock-logo'],
         cartButton: ['components/cart-button'],
-        menuButton: ['components/menu-button']
+        menuButton: ['components/menu-button'],
+        reviewStars: ['components/review-stars']
     },
     output: {
         path: SERVERDIR,
