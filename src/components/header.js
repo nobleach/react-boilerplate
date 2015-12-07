@@ -11,10 +11,10 @@ export default class Header extends Component {
         return (
             <div className="header-container">
                 <MenuButton />
-                <SearchButton />
                 <Link className="home-link" to='/'>
                     <OverstockLogo />
                 </Link>
+                <SearchButton />
                 <CartButton />
             </div>
         );

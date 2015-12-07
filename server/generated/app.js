@@ -182,12 +182,12 @@ module.exports =
 	                'div',
 	                { className: 'header-container' },
 	                _react2.default.createElement(_menuButton2.default, null),
-	                _react2.default.createElement(_searchButton2.default, null),
 	                _react2.default.createElement(
 	                    _reactRouter.Link,
 	                    { className: 'home-link', to: '/' },
 	                    _react2.default.createElement(_overstockLogo2.default, null)
 	                ),
+	                _react2.default.createElement(_searchButton2.default, null),
 	                _react2.default.createElement(_cartButton2.default, null)
 	            );
 	        }

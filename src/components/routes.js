@@ -6,6 +6,7 @@ import Contact from './contact';
 import Home from './home';
 import App from './app';
 import Product from './product';
+import SearchResults from './search-results';
 
 let routes = (
     <Route path="/" component={App}>
@@ -13,6 +14,7 @@ let routes = (
         <Route path="about" component={About}/>
         <Route path="contact" component={Contact}/>
         <Route path=":productId/product.html" component={Product} />
+        <Route path="search/shoes" component={SearchResults} />
     </Route>
 );
 

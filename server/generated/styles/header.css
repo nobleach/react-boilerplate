@@ -18,6 +18,7 @@
 }
 .header-container .search-button {
   display: table-cell;
+  text-align: right;
   width: 15%;
 }
 .header-container .search-button svg {
