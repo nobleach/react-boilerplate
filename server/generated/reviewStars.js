@@ -106,6 +106,10 @@ module.exports =
 	    _createClass(ReviewStars, [{
 	        key: 'render',
 	        value: function render() {
+	            if (isNaN(this.props.average)) {
+	                return _react2.default.createElement('div', null);
+	            }
+
 	            var width = parseInt(this.props.average * 2 * 10) + '%';
 	            return _react2.default.createElement(
 	                'div',

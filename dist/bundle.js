@@ -25721,6 +25721,10 @@
 	    _createClass(ReviewStars, [{
 	        key: 'render',
 	        value: function render() {
+	            if (isNaN(this.props.average)) {
+	                return _react2.default.createElement('div', null);
+	            }
+
 	            var width = parseInt(this.props.average * 2 * 10) + '%';
 	            return _react2.default.createElement(
 	                'div',
@@ -27301,7 +27305,7 @@
 	                _react2.default.createElement('img', { className: 'search-product-image', src: 'http://ak1.ostkcdn.com/images/products/' + result.imageMedium1, alt: '' }),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'search-result-title' },
+	                    { className: 'search-result-title fade' },
 	                    result.name
 	                ),
 	                _react2.default.createElement(_reviewStars2.default, { average: result.reviews })

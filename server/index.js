@@ -32,9 +32,18 @@ app.use(express.static(path.resolve(__dirname, '../dist')));
 // app.get('/:productId/product.html', (req, res) => {
 //     console.log('server rendered');
 //     let id = req.params.productId;
-//     let reactHtml = ReactDOMServer.renderToString(<Product productId={id} />);
+//     const initialState = {
+//         id: req.params.productId
+//     };
+//     const store = createStore((state=initialState) => state);
+//     let reactHtml = ReactDOMServer.renderToString(
+//         <Provider store={store}>
+//             <Product productId={id} />
+//         </Provider>
+//     );
 //     res.render('product', {
-//         product: reactHtml
+//         product: reactHtml,
+//         initialState: JSON.stringify(initialState)
 //     });
 // });
 

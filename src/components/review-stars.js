@@ -4,6 +4,10 @@ import styles from './styles/review-stars.less';
 
 export default class ReviewStars extends Component {
     render() {
+        if (isNaN(this.props.average)) {
+            return(<div />);
+        }
+
         let width = parseInt(this.props.average * 2 * 10) + '%';
         return (
             <div className="stars-container">

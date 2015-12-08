@@ -8,7 +8,7 @@ export default class SearchResultTile extends Component {
         return (
             <div className="search-result-tile">
                 <img className="search-product-image" src={`http://ak1.ostkcdn.com/images/products/${result.imageMedium1}`} alt="" />
-                <div className="search-result-title">{result.name}</div>
+                <div className="search-result-title fade">{result.name}</div>
                 <ReviewStars average={result.reviews} />
             </div>
         );
